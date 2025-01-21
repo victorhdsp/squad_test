@@ -95,7 +95,7 @@ export default function Home() {
             </Select>
             <Button variant="outline">
               <Filter className="h-4 w-4 mr-2" />
-              Filters
+              Filtros
             </Button>
           </div>
 
