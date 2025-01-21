@@ -58,7 +58,7 @@ export default function Home() {
       {/* Sidebar */}
       <aside className="w-64 border-r px-4 py-6 flex flex-col gap-6">
         <div className="flex items-center justify-between px-2">
-          <h1 className="text-xl font-bold">UX Forum</h1>
+          <h1 className="text-xl font-bold">SafeSpace</h1>
           <NotificationsButton />
         </div>
         <MainNav />
@@ -71,10 +71,10 @@ export default function Home() {
       <main className="flex-1 px-6 py-6">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl font-bold">Topics</h2>
+            <h2 className="text-3xl font-bold">Posts</h2>
             <Button>
               <Plus className="h-4 w-4 mr-2" />
-              New Topic
+              Novo post
             </Button>
           </div>
 
@@ -88,9 +88,9 @@ export default function Home() {
                 <SelectValue placeholder="Sort by" />
               </SelectTrigger>
               <SelectContent>
-                <SelectItem value="latest">Latest</SelectItem>
+                <SelectItem value="latest">Últimas</SelectItem>
                 <SelectItem value="popular">Popular</SelectItem>
-                <SelectItem value="unanswered">Unanswered</SelectItem>
+                <SelectItem value="unanswered">Sem resposta</SelectItem>
               </SelectContent>
             </Select>
             <Button variant="outline">
@@ -109,11 +109,11 @@ export default function Home() {
           {/* Pagination */}
           <div className="flex justify-center mt-8">
             <div className="flex gap-2">
-              <Button variant="outline" size="sm">Previous</Button>
+              <Button variant="outline" size="sm">Anterior</Button>
               <Button variant="outline" size="sm">1</Button>
               <Button variant="secondary" size="sm">2</Button>
               <Button variant="outline" size="sm">3</Button>
-              <Button variant="outline" size="sm">Next</Button>
+              <Button variant="outline" size="sm">Próxima</Button>
             </div>
           </div>
         </div>
