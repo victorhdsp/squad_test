@@ -51,7 +51,6 @@ const getIcon = (name) => {
   }
 };
 
-
 export default function ExperiencesPage() {
   return (
       <div className="flex min-h-screen">
