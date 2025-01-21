@@ -39,11 +39,11 @@ const navItems = [
     href: "/disputes",
     icon: Shield
   },
-  {
+  /*{
     title: "Configurações",
     href: "/settings",
     icon: Settings
-  }
+  }*/
 ]
 
 export function MainNav() {
