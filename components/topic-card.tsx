@@ -27,14 +27,14 @@ export function TopicCard({
 }: TopicCardProps) {
   return (
     <Card className="hover:bg-muted/50 transition-colors">
-      <CardHeader className="flex flex-col sm:flex-row items-start sm:items-center gap-4">
+      <CardHeader className="flex flex-row items-center gap-4">
         <Avatar className="h-10 w-10">
           <AvatarImage src={author.avatar} />
           <AvatarFallback>{author.name[0]}</AvatarFallback>
         </Avatar>
         <div className="flex flex-col gap-1">
           <h3 className="font-semibold">{title}</h3>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground flex-wrap">
+          <div className="flex items-center gap-2 text-sm text-muted-foreground">
             <span>{author.name}</span>
             <span>•</span>
             <span>{timestamp}</span>
@@ -44,8 +44,8 @@ export function TopicCard({
       <CardContent>
         <p className="text-sm text-muted-foreground line-clamp-2">{excerpt}</p>
       </CardContent>
-      <CardFooter className="flex flex-col sm:flex-row gap-4 sm:justify-between">
-        <Badge variant="secondary" className="w-fit">{category}</Badge>
+      <CardFooter className="flex justify-between">
+        <Badge variant="secondary">{category}</Badge>
         <div className="flex items-center gap-4 text-muted-foreground">
           <div className="flex items-center gap-1">
             <MessageCircle className="h-4 w-4" />

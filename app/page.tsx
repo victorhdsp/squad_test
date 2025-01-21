@@ -11,12 +11,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { Filter, Plus, Menu } from "lucide-react"
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet"
+import { Filter, Plus } from "lucide-react"
 
 const topics = [
   {
@@ -60,29 +55,8 @@ const topics = [
 export default function Home() {
   return (
     <div className="flex min-h-screen">
-      {/* Mobile sidebar trigger */}
-      <Sheet>
-        <SheetTrigger asChild>
-          <Button variant="ghost" size="icon" className="lg:hidden fixed left-4 top-4 z-50">
-            <Menu className="h-5 w-5" />
-          </Button>
-        </SheetTrigger>
-        <SheetContent side="left" className="w-64 p-0">
-          <div className="h-full flex flex-col gap-6 p-4">
-            <div className="flex items-center justify-between px-2">
-              <h1 className="text-xl font-bold">UX Forum</h1>
-              <NotificationsButton />
-            </div>
-            <MainNav />
-            <div className="mt-auto">
-              <UserNav />
-            </div>
-          </div>
-        </SheetContent>
-      </Sheet>
-
-      {/* Desktop sidebar */}
-      <aside className="hidden lg:flex w-64 border-r px-4 py-6 flex-col gap-6">
+      {/* Sidebar */}
+      <aside className="w-64 border-r px-4 py-6 flex flex-col gap-6">
         <div className="flex items-center justify-between px-2">
           <h1 className="text-xl font-bold">UX Forum</h1>
           <NotificationsButton />
@@ -94,10 +68,10 @@ export default function Home() {
       </aside>
 
       {/* Main content */}
-      <main className="flex-1 px-4 lg:px-6 py-6 pt-20 lg:pt-6">
+      <main className="flex-1 px-6 py-6">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center justify-between mb-8 flex-wrap gap-4">
-            <h2 className="text-2xl lg:text-3xl font-bold">Topics</h2>
+          <div className="flex items-center justify-between mb-8">
+            <h2 className="text-3xl font-bold">Topics</h2>
             <Button>
               <Plus className="h-4 w-4 mr-2" />
               New Topic
@@ -105,26 +79,24 @@ export default function Home() {
           </div>
 
           {/* Filters */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-8">
+          <div className="flex gap-4 mb-8">
             <div className="flex-1">
               <Input placeholder="Search topics..." />
             </div>
-            <div className="flex gap-2">
-              <Select defaultValue="latest">
-                <SelectTrigger className="w-40">
-                  <SelectValue placeholder="Sort by" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectItem value="latest">Latest</SelectItem>
-                  <SelectItem value="popular">Popular</SelectItem>
-                  <SelectItem value="unanswered">Unanswered</SelectItem>
-                </SelectContent>
-              </Select>
-              <Button variant="outline" className="whitespace-nowrap">
-                <Filter className="h-4 w-4 mr-2" />
-                Filters
-              </Button>
-            </div>
+            <Select defaultValue="latest">
+              <SelectTrigger className="w-40">
+                <SelectValue placeholder="Sort by" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="latest">Latest</SelectItem>
+                <SelectItem value="popular">Popular</SelectItem>
+                <SelectItem value="unanswered">Unanswered</SelectItem>
+              </SelectContent>
+            </Select>
+            <Button variant="outline">
+              <Filter className="h-4 w-4 mr-2" />
+              Filters
+            </Button>
           </div>
 
           {/* Topics list */}
@@ -136,7 +108,7 @@ export default function Home() {
 
           {/* Pagination */}
           <div className="flex justify-center mt-8">
-            <div className="flex gap-2 flex-wrap justify-center">
+            <div className="flex gap-2">
               <Button variant="outline" size="sm">Previous</Button>
               <Button variant="outline" size="sm">1</Button>
               <Button variant="secondary" size="sm">2</Button>

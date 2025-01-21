@@ -12,42 +12,46 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { Shield, AlertCircle, Menu } from "lucide-react"
+import { Shield, AlertCircle } from "lucide-react"
 import { cn } from "@/lib/utils"
-import {
-  Sheet,
-  SheetContent,
-  SheetTrigger,
-} from "@/components/ui/sheet"
 
-// ... (keep existing disputes data)
+const disputes = [
+  {
+    id: 1,
+    title: "Design System Implementation Guide",
+    reason: "Conteúdo Duplicado",
+    status: "Em Análise",
+    date: "2024-03-20",
+    response: null
+  },
+  {
+    id: 2,
+    title: "UX Research Methods",
+    reason: "Violação de Diretrizes",
+    status: "Rejeitado",
+    date: "2024-03-19",
+    response: "O conteúdo viola diretamente as diretrizes da comunidade sobre compartilhamento de informações confidenciais."
+  },
+  {
+    id: 3,
+    title: "Mobile First Design Principles",
+    reason: "Spam",
+    status: "Aprovado",
+    date: "2024-03-18",
+    response: "Disputa aprovada. O post foi restaurado."
+  }
+]
+
+const statusColors = {
+  "Em Análise": "bg-yellow-500",
+  "Rejeitado": "bg-red-500",
+  "Aprovado": "bg-green-500"
+}
 
 export default function DisputesPage() {
   return (
     <div className="flex min-h-screen">
-      {/* Mobile sidebar trigger */}
-      <Sheet>
-        <SheetTrigger asChild>
-          <Button variant="ghost" size="icon" className="lg:hidden fixed left-4 top-4 z-50">
-            <Menu className="h-5 w-5" />
-          </Button>
-        </SheetTrigger>
-        <SheetContent side="left" className="w-64 p-0">
-          <div className="h-full flex flex-col gap-6 p-4">
-            <div className="flex items-center justify-between px-2">
-              <h1 className="text-xl font-bold">UX Forum</h1>
-              <NotificationsButton />
-            </div>
-            <MainNav />
-            <div className="mt-auto">
-              <UserNav />
-            </div>
-          </div>
-        </SheetContent>
-      </Sheet>
-
-      {/* Desktop sidebar */}
-      <aside className="hidden lg:flex w-64 border-r px-4 py-6 flex-col gap-6">
+      <aside className="w-64 border-r px-4 py-6 flex flex-col gap-6">
         <div className="flex items-center justify-between px-2">
           <h1 className="text-xl font-bold">UX Forum</h1>
           <NotificationsButton />
@@ -58,13 +62,12 @@ export default function DisputesPage() {
         </div>
       </aside>
 
-      {/* Main content */}
-      <main className="flex-1 px-4 lg:px-6 py-6 pt-20 lg:pt-6">
+      <main className="flex-1 px-6 py-6">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center justify-between mb-8 flex-wrap gap-4">
+          <div className="flex items-center justify-between mb-8">
             <div className="flex items-center gap-2">
               <Shield className="h-6 w-6" />
-              <h2 className="text-2xl lg:text-3xl font-bold">Disputas</h2>
+              <h2 className="text-3xl font-bold">Disputas</h2>
             </div>
             <Button>
               Nova Disputa
@@ -109,7 +112,7 @@ export default function DisputesPage() {
               </div>
             </CardContent>
             <CardFooter>
-              <Button className="w-full sm:w-auto sm:ml-auto">Enviar Disputa</Button>
+              <Button className="ml-auto">Enviar Disputa</Button>
             </CardFooter>
           </Card>
 
@@ -118,9 +121,9 @@ export default function DisputesPage() {
             {disputes.map((dispute) => (
               <Card key={dispute.id}>
                 <CardHeader>
-                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                  <div className="flex items-center justify-between">
                     <h4 className="font-semibold">{dispute.title}</h4>
-                    <Badge variant="secondary" className="w-fit flex items-center gap-1">
+                    <Badge variant="secondary" className="flex items-center gap-1">
                       <span className={`h-2 w-2 rounded-full ${statusColors[dispute.status]}`} />
                       {dispute.status}
                     </Badge>
@@ -133,7 +136,7 @@ export default function DisputesPage() {
                 {dispute.response && (
                   <CardContent>
                     <div className="flex items-start gap-2 text-sm bg-muted/50 p-3 rounded-lg">
-                      <AlertCircle className="h-4 w-4 mt-0.5 flex-shrink-0" />
+                      <AlertCircle className="h-4 w-4 mt-0.5" />
                       <p>{dispute.response}</p>
                     </div>
                   </CardContent>
