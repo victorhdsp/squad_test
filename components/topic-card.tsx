@@ -10,13 +10,39 @@ import { Textarea } from "./ui/textarea"
 import { Button } from "./ui/button"
 import { CommentCard } from "./comment-card"
 import { Icomment } from "@/types/comments"
-import { useState } from "react"
+import { useState, useEffect } from "react";
 
 interface TopicCardProps extends Itopic {}
 
 export function TopicCard(item: TopicCardProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [newComment, setNewComment] = useState("")
+  const [comments, setComments] = useState<Icomment[]>([]);  // Estado para armazenar comentários
+  const [loading, setLoading] = useState<boolean>(false);
+
+  const fetchTopicComments = async () => {
+    setLoading(true);
+    try {
+      const response = await fetch(`/firebase?topicId=${item.id}`);
+      const data = await response.json();
+      if (response.ok) {
+        setComments(data); // Atualiza o estado com os dados
+      } else {
+        console.error("Erro ao buscar comentários:", data.error);
+      }
+    } catch (error) {
+      console.error("Erro ao buscar comentários:", error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  // Carregar os comentários ao abrir o modal
+  useEffect(() => {
+    if (isOpen) {
+      fetchTopicComments();
+    }
+  }, [isOpen]);
 
   const handleSubmitComment = () => {
     if (newComment.trim()) {
@@ -28,8 +54,8 @@ export function TopicCard(item: TopicCardProps) {
 
   return (
     <>
-      <Card 
-        className="hover:bg-muted/50 transition-colors cursor-pointer" 
+      <Card
+        className="hover:bg-muted/50 transition-colors cursor-pointer"
         onClick={() => setIsOpen(true)}
       >
         <CardHeader className="flex flex-row items-center gap-4">
@@ -74,31 +100,29 @@ export function TopicCard(item: TopicCardProps) {
             </DialogHeader>
 
             <div className="flex flex-col h-full">
-              {/* Topic content */}
               <div className="border-b py-4">
                 <p className="text-muted-foreground">{item.excerpt}</p>
               </div>
 
-              {/* Comments section */}
               <div className="flex-1 overflow-y-auto py-4 space-y-4">
-                {item.comments.map((comment: Icomment) => (
-                  <CommentCard
-                    key={comment.id}
-                    {...comment}
-                  />
-                ))}
+                {loading ? (
+                  <p>Carregando comentários...</p>
+                ) : (
+                  comments.map((comment: Icomment) => (
+                    <CommentCard key={comment.id} {...comment} />
+                  ))
+                )}
               </div>
 
-              {/* New comment input */}
               <div className="border-t pt-4 mt-auto">
                 <div className="flex gap-4">
-                  <Textarea 
-                    placeholder="Write a comment..." 
+                  <Textarea
+                    placeholder="Write a comment..."
                     value={newComment}
                     onChange={(e) => setNewComment(e.target.value)}
                     className="flex-1"
                   />
-                  <Button 
+                  <Button
                     size="icon"
                     onClick={handleSubmitComment}
                     disabled={!newComment.trim()}
@@ -112,5 +136,5 @@ export function TopicCard(item: TopicCardProps) {
         </DialogContent>
       </Dialog>
     </>
-  )
+  );
 }
