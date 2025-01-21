@@ -2,6 +2,8 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from "@/components/theme-provider";
+import { AsideMenu } from '@/components/aside-menu';
+import { HeaderMobile } from '@/components/header-mobile';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -16,15 +18,19 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+    <html lang="pt-BR" suppressHydrationWarning>
+      <body className={`${inter.className} flex min-h-screen w-full`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <AsideMenu />
+          <div className='flex flex-col w-full'>
+            <HeaderMobile />
+            {children}
+          </div>
         </ThemeProvider>
       </body>
     </html>

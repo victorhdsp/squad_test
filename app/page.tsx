@@ -59,7 +59,7 @@ const topics = [
           avatar: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=64&h=64&fit=crop&crop=faces"
         },
         content: "This is a really interesting perspective. I've been working on something similar and found that...",
-        timestamp: "2 hours ago"
+        date: "2 hours ago"
       },
       {
         id: "2",
@@ -68,7 +68,7 @@ const topics = [
           avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=64&h=64&fit=crop&crop=faces"
         },
         content: "Great points! Have you considered looking into the research by Nielsen Norman Group on this topic?",
-        timestamp: "1 hour ago"
+        date: "1 hour ago"
       }
     ]
   }
@@ -76,70 +76,55 @@ const topics = [
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen">
-      {/* Sidebar */}
-      <aside className="w-64 border-r px-4 py-6 flex flex-col gap-6">
-        <div className="flex items-center justify-between px-2">
-          <h1 className="text-xl font-bold">SafeSpace</h1>
-          <NotificationsButton />
+    <main className="flex-1 px-6 py-6">
+      <div className="max-w-4xl mx-auto">
+        <div className="flex items-center justify-between mb-8">
+          <h2 className="text-3xl font-bold">Posts</h2>
+          <Button>
+            <Plus className="h-4 w-4 mr-2" />
+            Novo post
+          </Button>
         </div>
-        <MainNav />
-        <div className="mt-auto">
-          <UserNav />
+
+        {/* Filters */}
+        <div className="flex gap-4 mb-8">
+          <div className="flex-1">
+            <Input placeholder="Search topics..." />
+          </div>
+          <Select defaultValue="latest">
+            <SelectTrigger className="w-40">
+              <SelectValue placeholder="Sort by" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectItem value="latest">Últimas</SelectItem>
+              <SelectItem value="popular">Popular</SelectItem>
+              <SelectItem value="unanswered">Sem resposta</SelectItem>
+            </SelectContent>
+          </Select>
+          <Button variant="outline">
+            <Filter className="h-4 w-4 mr-2" />
+            Filtros
+          </Button>
         </div>
-      </aside>
 
-      {/* Main content */}
-      <main className="flex-1 px-6 py-6">
-        <div className="max-w-4xl mx-auto">
-          <div className="flex items-center justify-between mb-8">
-            <h2 className="text-3xl font-bold">Posts</h2>
-            <Button>
-              <Plus className="h-4 w-4 mr-2" />
-              Novo post
-            </Button>
-          </div>
+        {/* Topics list */}
+        <div className="space-y-4">
+          {topics.map((topic, index) => (
+            <TopicCard key={index} {...topic} />
+          ))}
+        </div>
 
-          {/* Filters */}
-          <div className="flex gap-4 mb-8">
-            <div className="flex-1">
-              <Input placeholder="Search topics..." />
-            </div>
-            <Select defaultValue="latest">
-              <SelectTrigger className="w-40">
-                <SelectValue placeholder="Sort by" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="latest">Últimas</SelectItem>
-                <SelectItem value="popular">Popular</SelectItem>
-                <SelectItem value="unanswered">Sem resposta</SelectItem>
-              </SelectContent>
-            </Select>
-            <Button variant="outline">
-              <Filter className="h-4 w-4 mr-2" />
-              Filtros
-            </Button>
-          </div>
-
-          {/* Topics list */}
-          <div className="space-y-4">
-            {topics.map((topic, index) => (
-              <TopicCard key={index} {...topic} />
-            ))}
-          </div>
-
-          {/* Pagination */}
-          <div className="flex justify-center mt-8">
-            <div className="flex gap-2">
-              <Button variant="outline" size="sm">Anterior</Button>
-              <Button variant="outline" size="sm">1</Button>
-              <Button variant="secondary" size="sm">2</Button>
-              <Button variant="outline" size="sm">3</Button>
-              <Button variant="outline" size="sm">Próxima</Button>
-            </div>
+        {/* Pagination */}
+        <div className="flex justify-center mt-8">
+          <div className="flex gap-2">
+            <Button variant="outline" size="sm">Anterior</Button>
+            <Button variant="outline" size="sm">1</Button>
+            <Button variant="secondary" size="sm">2</Button>
+            <Button variant="outline" size="sm">3</Button>
+            <Button variant="outline" size="sm">Próxima</Button>
           </div>
         </div>
-      </main>
-    </div>
+      </div>
+    </main>
   )
 }

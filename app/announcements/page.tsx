@@ -60,18 +60,6 @@ const announcements = [
 export default function AnnouncementsPage() {
   return (
     <div className="flex min-h-screen">
-      {/* Sidebar */}
-      <aside className="w-64 border-r px-4 py-6 flex flex-col gap-6">
-        <div className="flex items-center justify-between px-2">
-          <h1 className="text-xl font-bold">UX Forum</h1>
-          <NotificationsButton />
-        </div>
-        <MainNav />
-        <div className="mt-auto">
-          <UserNav />
-        </div>
-      </aside>
-
       {/* Main content */}
       <main className="flex-1 px-6 py-6">
         <div className="max-w-4xl mx-auto">
