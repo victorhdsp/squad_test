@@ -1,90 +1,90 @@
-import { MainNav } from "@/components/main-nav"
-import { UserNav } from "@/components/user-nav"
-import { NotificationsButton } from "@/components/notifications-button"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
-import { Badge } from "@/components/ui/badge"
-import { Gift, Check } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import {Check, Github, Youtube, Music2Icon, TicketSlash, Gift} from "lucide-react"; // Ícones
 
-const benefits = [
+// Dados atualizados
+const experiences = [
   {
-    title: "Membro Bronze",
-    price: "Grátis",
-    features: [
-      "Acesso a todos os tópicos",
-      "Participação em discussões",
-      "Perfil personalizado"
-    ],
-    current: true
+    title: "GitHub Student Pack",
+    description: "Acesse gratuitamente ferramentas essenciais para desenvolvedores, incluindo GitHub Pro, Microsoft Azure, entre outros.",
+    offers: ["GitHub Pro", "Microsoft Azure", "Namecheap"],
+    icon: "GitHub",
+    link: "#",
   },
   {
-    title: "Membro Prata",
-    price: "R$ 19,90/mês",
-    features: [
-      "Todos os benefícios do Bronze",
-      "Badge exclusiva",
-      "Sem anúncios",
-      "Acesso antecipado a novos recursos"
-    ],
-    highlight: true
+    title: "YouTube Music University",
+    description: "Aproveite o YouTube Music Premium com sua conta de estudante e ouça suas músicas favoritas sem anúncios e offline.",
+    offers: ["YouTube Music Premium"],
+    icon: "Music",
+    link: "#",
   },
   {
-    title: "Membro Ouro",
-    price: "R$ 39,90/mês",
-    features: [
-      "Todos os benefícios do Prata",
-      "Suporte prioritário",
-      "Eventos exclusivos",
-      "Mentoria mensal",
-      "Recursos beta"
-    ]
+    title: "Web Summit",
+    description: "Garanta seu ingresso gratuito para eventos de tecnologia e inovação, enquanto houver disponibilidade.",
+    offers: ["Web Summit"],
+    icon: "Event",
+    link: "#",
+  },
+  {
+    title: "Rio Innovation Week",
+    description: "Garanta seu ingresso gratuito para evento de tecnologia e inovação, enquanto houver disponibilidade.",
+    offers: ["Rio Innovation Week"],
+    icon: "Event",
+    link: "#",
+  },
+];
+// Função para escolher o ícone certo
+const getIcon = (name: string) => {
+  switch (name) {
+    case "Music":
+      return <Youtube className="h-12 w-12 text-primary" />;
+    case "Event":
+      return <TicketSlash className="h-12 w-12 text-primary" />;
+    case "GitHub":
+      return <Github className="h-12 w-12 text-primary" />;
+    default:
+      return null;
   }
-]
+};
 
-export default function BenefitsPage() {
+export default function ExperiencesPage() {
   return (
-    <main className="flex-1 px-6 py-6">
-      <div className="max-w-5xl mx-auto">
-        <div className="flex items-center gap-2 mb-8">
-          <Gift className="h-6 w-6" />
-          <h2 className="text-3xl font-bold">Benefícios</h2>
-        </div>
+      <main className="flex-1 px-6 py-6">
+        <div className="max-w-5xl mx-auto">
+          <div className="flex items-center gap-2 mb-8">
+            <Gift className="h-6 w-6" />
+            <h2 className="text-3xl font-bold">Benefícios</h2>
+          </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {benefits.map((tier) => (
-            <Card key={tier.title} className={cn(
-              "relative",
-              tier.highlight && "border-primary shadow-lg"
-            )}>
-              {tier.highlight && (
-                <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                  <Badge variant="secondary">Mais Popular</Badge>
-                </div>
-              )}
-              <CardHeader>
-                <h3 className="text-2xl font-bold text-center">{tier.title}</h3>
-                <p className="text-xl text-center text-muted-foreground">{tier.price}</p>
-              </CardHeader>
-              <CardContent>
-                <ul className="space-y-2">
-                  {tier.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2">
-                      <Check className="h-4 w-4 text-primary" />
-                      <span>{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </CardContent>
-              <CardFooter>
-                <Button className="w-full" variant={tier.current ? "secondary" : "default"}>
-                  {tier.current ? "Plano Atual" : "Escolher Plano"}
-                </Button>
-              </CardFooter>
-            </Card>
-          ))}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {experiences.map((exp) => (
+                <Card key={exp.title} className="relative">
+                  <CardHeader className="flex flex-col items-center">
+                    {/* Ícone dinâmico baseado no tipo da experiência */}
+                    {getIcon(exp.icon)}
+                    <h3 className="text-2xl font-bold text-center mt-4">{exp.title}</h3>
+                  </CardHeader>
+                  <CardContent>
+                    <p className="text-center text-muted-foreground">{exp.description}</p>
+                    <ul className="space-y-2 mt-4">
+                      {exp.offers.map((offer) => (
+                          <li key={offer} className="flex items-center gap-2">
+                            <Check className="h-4 w-4 text-primary" />
+                            <span>{offer}</span>
+                          </li>
+                      ))}
+                    </ul>
+                    <div className="flex-grow" />
+                  </CardContent>
+                  <CardFooter className="mt-auto p-4">
+                    <Button className="w-full py-3 text-lg" asChild>
+                      <a href={exp.link}>Saber mais</a>
+                    </Button>
+                  </CardFooter>
+                </Card>
+            ))}
+          </div>
         </div>
-      </div>
-    </main>
-  )
+      </main>
+  );
 }
