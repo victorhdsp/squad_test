@@ -22,10 +22,7 @@ export default function Home() {
   const { topic_filters, change_topic_filters } = useSystemStore();
 
   useEffect(() => {
-    console.log(getTopics());
-    getTopics().then(data => {
-      setTopics(data);
-    })
+    getTopics().then(data => setTopics(data))
   }, [topic_filters])
 
   const handleSeach = (e: ChangeEvent<HTMLInputElement>) => {

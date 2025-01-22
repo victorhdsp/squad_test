@@ -36,9 +36,15 @@ export function AnnouncementCard(item: AnnouncementCardProps) {
                 <MessageCircle className="h-4 w-4" />
                 Comments
             </h4>
-            {item.comments.map((comment) => (
-                <CommentCard {...comment}/>
-            ))}
+            { item.comments && Object.keys(item.comments).map((id) => {
+                if (item.comments[id])
+                return (
+                    <CommentCard
+                    key={id}
+                    {...item.comments[id]}
+                    />
+                )
+            })}
             </div>
         </CardContent>
         <CardFooter>

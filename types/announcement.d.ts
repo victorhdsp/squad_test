@@ -11,5 +11,5 @@ export interface Iannouncement {
   content: string,
   author: Author,
   date: string,
-  comments: Icomment[]
+  comments: { [key: string]: Icomment }
 }
