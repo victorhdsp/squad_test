@@ -23,8 +23,7 @@ const announcements = [
       {
         id: 1,
         author: {
-          name: "Sarah Wilson",
-          avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=64&h=64&fit=crop&crop=faces"
+          name: "Sarah Wilson"
         },
         content: "Great updates! The new guidelines are much clearer.",
         date: "2024-03-20"
@@ -32,8 +31,7 @@ const announcements = [
       {
         id: 2,
         author: {
-          name: "Mike Chen",
-          avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=faces"
+          name: "Mike Chen"
         },
         content: "Looking forward to seeing how these changes improve our community discussions.",
         date: "2024-03-20"
