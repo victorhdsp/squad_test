@@ -9,7 +9,6 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
 import { Textarea } from "./ui/textarea"
 import { Button } from "./ui/button"
 import { CommentCard } from "./comment-card"
-import { Icomment } from "@/types/comments"
 import { useState } from "react"
 
 interface TopicCardProps extends Itopic {}
@@ -81,12 +80,15 @@ export function TopicCard(item: TopicCardProps) {
 
               {/* Comments section */}
               <div className="flex-1 overflow-y-auto py-4 space-y-4">
-                {item.comments.map((comment: Icomment) => (
-                  <CommentCard
-                    key={comment.id}
-                    {...comment}
-                  />
-                ))}
+                { item.comments && Object.keys(item.comments).map((id) => {
+                  if (item.comments[id])
+                    return (
+                      <CommentCard
+                        key={id}
+                        {...item.comments[id]}
+                      />
+                    )
+                })}
               </div>
 
               {/* New comment input */}
