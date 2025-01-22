@@ -12,5 +12,5 @@ export interface Itopic {
   likes: number
   excerpt: string
   timestamp: string
-  comments: Icomment[]
+  comments: { [key: string]: Icomment }
 }
