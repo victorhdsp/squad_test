@@ -8,14 +8,19 @@ import { CommentCard } from "./comment-card";
 import { Textarea } from "./ui/textarea";
 import { Button } from "./ui/button";
 import { Send } from "lucide-react";
+import TimeAgo from 'javascript-time-ago'
+import pt from 'javascript-time-ago/locale/pt'
 
 interface TopicCardProps extends Itopic {
     isOpen: boolean
     toogleOpenState: (open: boolean) => void
 }
+TimeAgo.addDefaultLocale(pt)
+const timeAgo = new TimeAgo('pt-BR')
 
 export function TopicViewDialog(item: TopicCardProps) {
   const [newComment, setNewComment] = useState("")
+  const timestamp = timeAgo.format(parseInt(item.timestamp), "round");
 
   const handleSubmitComment = () => {
     if (newComment.trim()) {
@@ -34,7 +39,7 @@ export function TopicViewDialog(item: TopicCardProps) {
             <div className="flex items-center gap-2 text-sm text-muted-foreground mt-2 h-max">
               <span>{item.author.name}</span>
               <span>•</span>
-              <span>{item.timestamp}</span>
+              <span>{timestamp}</span>
               <Badge variant="secondary" className="ml-auto">{item.category}</Badge>
             </div>
           </DialogHeader>

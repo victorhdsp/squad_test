@@ -6,5 +6,5 @@ export interface Icomment {
     id: string,
     author: Author,
     content: string,
-    date: string
+    timestamp: string
 }

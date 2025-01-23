@@ -3,20 +3,20 @@
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Itopic } from "@/types/topic"
-import { MessageCircle, Heart, Send } from "lucide-react"
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "./ui/dialog"
-import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar"
-import { Textarea } from "./ui/textarea"
-import { Button } from "./ui/button"
-import { CommentCard } from "./comment-card"
+import { MessageCircle, Heart } from "lucide-react"
 import { useState } from "react"
 import { TopicViewDialog } from "./topic-view-dialog";
+import TimeAgo from 'javascript-time-ago'
+import pt from 'javascript-time-ago/locale/pt'
 
 interface TopicCardProps extends Itopic {}
+TimeAgo.addDefaultLocale(pt)
+const timeAgo = new TimeAgo('pt-BR')
 
 export function TopicCard(item: TopicCardProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [newComment, setNewComment] = useState("")
+  const timestamp = timeAgo.format(parseInt(item.timestamp), "round");
 
   const handleSubmitComment = () => {
     if (newComment.trim()) {
@@ -25,7 +25,6 @@ export function TopicCard(item: TopicCardProps) {
       setNewComment("")
     }
   }
-
   return (
     <>
       <Card 
@@ -38,7 +37,7 @@ export function TopicCard(item: TopicCardProps) {
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
               <span>{item.author.name}</span>
               <span>•</span>
-              <span>{item.timestamp}</span>
+              <span>{timestamp}</span>
             </div>
           </div>
         </CardHeader>
