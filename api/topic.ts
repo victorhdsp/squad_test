@@ -6,7 +6,7 @@ headers.append("Content-Type", "application/json");
 const requestOptions = (method: string, body?: any): RequestInit => ({
     method,
     headers,
-    body,
+    body: JSON.stringify(body),
     redirect: "follow"
 })
 
@@ -18,10 +18,11 @@ export const getTopics = async () => {
     return data;
 }
 
-type PostTopic = Omit<Itopic, "comments" | "replies" | "likes" | "timestamp">
+export type PostTopic = Omit<Itopic, "comments" | "replies" | "likes" | "timestamp">
 export const setTopic = async (data: PostTopic) => {
     const topic: Itopic = {
         ...data,
+        author: { name: "" },
         comments: {},
         replies: 0,
         likes: 0,
@@ -31,7 +32,7 @@ export const setTopic = async (data: PostTopic) => {
     return response.ok;
 }
 
-type PatchTopic = Omit<Itopic, "comments" | "replies" | "likes" | "timestamp">
+export type PatchTopic = Omit<Itopic, "comments" | "replies" | "likes" | "timestamp" | "author">
 export const editTopic = async (id: string, data: PatchTopic) => {
     const topic: Partial<Itopic> = {
         ...data,
