@@ -10,27 +10,18 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { getTopics } from "@/lib/pre_api";
-import useSystemStore from "@/stores/system";
+import { getTopics } from "@/api/topic";
 import { Itopic } from "@/types/topic";
 import { Plus } from "lucide-react"
-import { ChangeEvent, useEffect, useState } from "react"
+import { useEffect, useState } from "react"
 
 
 export default function Home() {
   const [topics, setTopics] = useState<{ [key: string]: Itopic }>()
-  const { topic_filters, change_topic_filters } = useSystemStore();
 
   useEffect(() => {
     getTopics().then(data => setTopics(data))
-  }, [topic_filters])
-
-  const handleSeach = (e: ChangeEvent<HTMLInputElement>) => {
-    change_topic_filters({ search: e.target.value })
-  }
-  const handleOrderBy = (key: string) => {
-    change_topic_filters({ orderBy: key })
-  }
+  }, [])
 
   return (
     <main className="flex-1 px-6 py-6">
@@ -43,24 +34,26 @@ export default function Home() {
           </Button>
         </div>
 
-        <div className="flex gap-4 mb-8">
-          <div className="flex-1">
-            <Input
-              placeholder="Search topics..."
-              onChange={handleSeach}
-            />
+        {/*
+          <div className="flex gap-4 mb-8">
+            <div className="flex-1">
+              <Input
+                placeholder="Search topics..."
+                onChange={() => {}}
+              />
+            </div>
+            <Select defaultValue="latest" onValueChange={() => {}}>
+              <SelectTrigger className="w-40">
+                <SelectValue placeholder="Sort by" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="latest">Últimas</SelectItem>
+                <SelectItem value="popular">Popular</SelectItem>
+                <SelectItem value="unanswered">Sem resposta</SelectItem>
+              </SelectContent>
+            </Select>
           </div>
-          <Select defaultValue="latest" onValueChange={handleOrderBy}>
-            <SelectTrigger className="w-40">
-              <SelectValue placeholder="Sort by" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="latest">Últimas</SelectItem>
-              <SelectItem value="popular">Popular</SelectItem>
-              <SelectItem value="unanswered">Sem resposta</SelectItem>
-            </SelectContent>
-          </Select>
-        </div>
+        */}
 
         <div className="space-y-4">
           {

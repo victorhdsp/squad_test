@@ -1,4 +1,3 @@
-import { TopicFilters } from "@/stores/system";
 import { Itopic } from "@/types/topic";
 
 const headers = new Headers();
