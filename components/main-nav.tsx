@@ -24,21 +24,21 @@ const navItems = [
     href: "/",
     icon: MessageSquare
   },
-  {
+  /*{
     title: "Avisos",
     href: "/announcements",
     icon: AlertCircle
-  },
-  {
+  },*/
+  /*{
     title: "Benefícios",
     href: "/benefits",
     icon: Gift
-  },
-  {
+  },*/
+  /*{
     title: "Disputas",
     href: "/disputes",
     icon: Shield
-  },
+  },*/
   /*{
     title: "Configurações",
     href: "/settings",

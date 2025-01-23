@@ -60,7 +60,6 @@ export default function ExperiencesPage() {
             {experiences.map((exp) => (
                 <Card key={exp.title} className="relative">
                   <CardHeader className="flex flex-col items-center">
-                    {/* Ícone dinâmico baseado no tipo da experiência */}
                     {getIcon(exp.icon)}
                     <h3 className="text-2xl font-bold text-center mt-4">{exp.title}</h3>
                   </CardHeader>

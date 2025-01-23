@@ -26,8 +26,9 @@ export default function AnnouncementsPage() {
                 Object.keys(announcements).map((id) => (
                   <AnnouncementCard key={id} {...announcements[id]} />
                 ))
-              ) :
-              (<h2>Sem avisos</h2>)
+              ) : (
+                <h2>Sem avisos</h2>
+              )
             }
           </div>
         </div>

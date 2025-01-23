@@ -68,8 +68,9 @@ export default function Home() {
               Object.keys(topics).map((keyName) => (
                 <TopicCard key={keyName} {...topics[keyName]} />
               ))
-            ) :
-            (<h2>Sem tópicos</h2>)
+            ) : (
+              <h2>Sem tópicos</h2>
+            )
           }
         </div>
 
