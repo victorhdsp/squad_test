@@ -10,7 +10,6 @@ import { Textarea } from "./ui/textarea"
 import { Button } from "./ui/button"
 import { CommentCard } from "./comment-card"
 import { useState } from "react"
-import { TopicViewDialog } from "./topic-view-dialog";
 
 interface TopicCardProps extends Itopic {}
 
@@ -60,7 +59,60 @@ export function TopicCard(item: TopicCardProps) {
         </CardFooter>
       </Card>
 
-      <TopicViewDialog {...item} isOpen={isOpen} toogleOpenState={setIsOpen} />
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+        <DialogContent className="max-w-2xl h-[80vh]">
+          <div className="flex flex-col gap-6">
+            <DialogHeader className="">
+              <DialogTitle>{item.title}</DialogTitle>
+              <div className="flex items-center gap-2 text-sm text-muted-foreground mt-2 h-max">
+                <span>{item.author.name}</span>
+                <span>•</span>
+                <span>{item.timestamp}</span>
+                <Badge variant="secondary" className="ml-auto">{item.category}</Badge>
+              </div>
+            </DialogHeader>
+
+            <div className="flex flex-col h-full">
+              {/* Topic content */}
+              <div className="border-b py-4">
+                <p className="text-muted-foreground">{item.excerpt}</p>
+              </div>
+
+              {/* Comments section */}
+              <div className="flex-1 overflow-y-auto py-4 space-y-4">
+                { item.comments && Object.keys(item.comments).map((id) => {
+                  if (item.comments[id])
+                    return (
+                      <CommentCard
+                        key={id}
+                        {...item.comments[id]}
+                      />
+                    )
+                })}
+              </div>
+
+              {/* New comment input */}
+              <div className="border-t pt-4 mt-auto">
+                <div className="flex gap-4">
+                  <Textarea 
+                    placeholder="Write a comment..." 
+                    value={newComment}
+                    onChange={(e) => setNewComment(e.target.value)}
+                    className="flex-1"
+                  />
+                  <Button 
+                    size="icon"
+                    onClick={handleSubmitComment}
+                    disabled={!newComment.trim()}
+                  >
+                    <Send className="h-4 w-4" />
+                  </Button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </DialogContent>
+      </Dialog>
     </>
   )
 }

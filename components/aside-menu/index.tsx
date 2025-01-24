@@ -19,7 +19,7 @@ export function AsideMenu () {
             </Button>
             <div className="flex items-center justify-between px-2">
                 <h1 className="text-xl font-bold">SafeSpace</h1>
-                { /* <NotificationsButton /> */ }
+                <NotificationsButton />
             </div>
             <div onClick={() => toogle_menu_mobile(false)}>
                 <MainNav />
