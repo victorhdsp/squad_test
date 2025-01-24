@@ -20,7 +20,7 @@ const disputes = [
     id: 1,
     title: "Design System Implementation Guide",
     reason: "Conteúdo Duplicado",
-    status: "Em Análise",
+    status: "Em Analise",
     date: "2024-03-20",
     response: null
   },
@@ -43,7 +43,7 @@ const disputes = [
 ]
 
 const statusColors = {
-  "Em Análise": "bg-yellow-500",
+  "Em Analise": "bg-yellow-500",
   "Rejeitado": "bg-red-500",
   "Aprovado": "bg-green-500"
 }
@@ -112,7 +112,7 @@ export default function DisputesPage() {
                 <div className="flex items-center justify-between">
                   <h4 className="font-semibold">{dispute.title}</h4>
                   <Badge variant="secondary" className="flex items-center gap-1">
-                    <span className={`h-2 w-2 rounded-full ${statusColors[dispute.status]}`} />
+                    <span className={`h-2 w-2 rounded-full ${statusColors[(dispute.status as "Em Analise" || "Rejeitado" || "Aprovado")]}`} />
                     {dispute.status}
                   </Badge>
                 </div>
