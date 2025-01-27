@@ -123,7 +123,7 @@ export default function AnnouncementsPage() {
                     <div className="mt-6 space-y-4">
                       <h4 className="font-medium flex items-center gap-2">
                         <MessageCircle className="h-4 w-4" />
-                        Comments
+                        Comentários
                       </h4>
                       {announcement.comments.map((comment) => (
                         <div key={comment.id} className="flex gap-4 pl-4 border-l">
@@ -144,9 +144,9 @@ export default function AnnouncementsPage() {
                   </CardContent>
                   <CardFooter>
                     <div className="w-full space-y-2">
-                      <Textarea placeholder="Write a comment..." />
+                      <Textarea placeholder="Escreva um comentário..." />
                       <div className="flex justify-end">
-                        <Button>Comment</Button>
+                        <Button>Comentar</Button>
                       </div>
                     </div>
                   </CardFooter>

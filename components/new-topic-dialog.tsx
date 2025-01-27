@@ -42,21 +42,21 @@ export function NewTopicDialog() {
       <DialogTrigger asChild>
         <Button>
           <Plus className="h-4 w-4 mr-2" />
-          New Topic
+          Novo Tópico
         </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[600px]">
         <DialogHeader>
-          <DialogTitle>Create New Topic</DialogTitle>
+          <DialogTitle>Criar novo tópico</DialogTitle>
         </DialogHeader>
         <form onSubmit={handleSubmit} className="space-y-6 pt-4">
           <div className="space-y-2">
             <label htmlFor="title" className="text-sm font-medium">
-              Title
+              Título
             </label>
             <Input
               id="title"
-              placeholder="Enter the topic title"
+              placeholder="Escreva o titulo do seu tópico"
               value={title}
               onChange={(e) => setTitle(e.target.value)}
               required
@@ -65,11 +65,11 @@ export function NewTopicDialog() {
 
           <div className="space-y-2">
             <label htmlFor="category" className="text-sm font-medium">
-              Category
+              Categoria
             </label>
             <Select value={category} onValueChange={setCategory} required>
               <SelectTrigger>
-                <SelectValue placeholder="Select a category" />
+                <SelectValue placeholder="Selecione uma categoria" />
               </SelectTrigger>
               <SelectContent>
                 {categories.map((category) => (
@@ -83,11 +83,11 @@ export function NewTopicDialog() {
 
           <div className="space-y-2">
             <label htmlFor="content" className="text-sm font-medium">
-              Content
+              Conteúdo
             </label>
             <Textarea
               id="content"
-              placeholder="Write your topic content..."
+              placeholder="Escreva o conteúdo do seu tópico..."
               value={content}
               onChange={(e) => setContent(e.target.value)}
               className="min-h-[200px]"
@@ -97,9 +97,9 @@ export function NewTopicDialog() {
 
           <div className="flex justify-end gap-3">
             <Button type="button" variant="outline" onClick={() => setIsOpen(false)}>
-              Cancel
+              Cancelar
             </Button>
-            <Button type="submit">Create Topic</Button>
+            <Button type="submit">Criar Tópico</Button>
           </div>
         </form>
       </DialogContent>

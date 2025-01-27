@@ -84,29 +84,29 @@ export default function Home() {
         <div className="px-4 md:px-6 py-6">
           <div className="max-w-4xl mx-auto">
             <div className="flex items-center justify-between mb-8">
-              <h2 className="text-3xl font-bold">Topics</h2>
+              <h2 className="text-3xl font-bold">Tópicos</h2>
               <NewTopicDialog />
             </div>
 
             {/* Filters */}
             <div className="flex flex-col md:flex-row gap-4 mb-8">
               <div className="flex-1">
-                <Input placeholder="Search topics..." />
+                <Input placeholder="Busque por tópicos..." />
               </div>
               <div className="flex gap-4">
                 <Select defaultValue="latest">
                   <SelectTrigger className="w-40">
-                    <SelectValue placeholder="Sort by" />
+                    <SelectValue placeholder="Ordenar por" />
                   </SelectTrigger>
                   <SelectContent>
-                    <SelectItem value="latest">Latest</SelectItem>
-                    <SelectItem value="popular">Popular</SelectItem>
+                    <SelectItem value="latest">Últimos</SelectItem>
+                    <SelectItem value="popular">Populares</SelectItem>
                     <SelectItem value="unanswered">Unanswered</SelectItem>
                   </SelectContent>
                 </Select>
                 <Button variant="outline">
                   <Filter className="h-4 w-4 mr-2" />
-                  Filters
+                  Filtros
                 </Button>
               </div>
             </div>

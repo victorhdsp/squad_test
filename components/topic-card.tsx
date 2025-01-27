@@ -80,10 +80,10 @@ export function TopicCard({
         onClick={() => setIsOpen(true)}
       >
         <CardHeader className="flex flex-row items-center gap-4">
-          <Avatar className="h-10 w-10">
+          {/*<Avatar className="h-10 w-10">
             <AvatarImage src={author.avatar} />
             <AvatarFallback>{author.name[0]}</AvatarFallback>
-          </Avatar>
+          </Avatar>*/}
           <div className="flex flex-col gap-1">
             <h3 className="font-semibold">{title}</h3>
             <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -116,10 +116,10 @@ export function TopicCard({
           <DialogHeader>
             <DialogTitle>{title}</DialogTitle>
             <div className="flex items-center gap-2 text-sm text-muted-foreground mt-2">
-              <Avatar className="h-8 w-8">
+              {/*<Avatar className="h-8 w-8">
                 <AvatarImage src={author.avatar} />
                 <AvatarFallback>{author.name[0]}</AvatarFallback>
-              </Avatar>
+              </Avatar>*/}
               <span>{author.name}</span>
               <span>•</span>
               <span>{timestamp}</span>
