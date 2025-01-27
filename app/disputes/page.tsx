@@ -136,7 +136,7 @@ export default function DisputesPage() {
                     <div className="flex items-center justify-between">
                       <h4 className="font-semibold">{dispute.title}</h4>
                       <Badge variant="secondary" className="flex items-center gap-1">
-                        <span className={`h-2 w-2 rounded-full {statusColors[dispute.status]}`} />
+                        <span className={`h-2 w-2 rounded-full ${statusColors[dispute.status as "Em Análise" | "Rejeitado" | "Aprovado"]}`} />
                         {dispute.status}
                       </Badge>
                     </div>
