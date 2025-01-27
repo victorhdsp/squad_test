@@ -2,14 +2,12 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { ThemeProvider } from "@/components/theme-provider";
-import { AsideMenu } from '@/components/aside-menu';
-import { HeaderMobile } from '@/components/header-mobile';
 
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'SafeSpace',
-  description: 'Lugar seguro no ambiente de trabalho',
+  title: 'UX Forum',
+  description: 'A community forum for UX discussions',
 };
 
 export default function RootLayout({
@@ -18,19 +16,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="pt-BR" suppressHydrationWarning>
-      <body className={`${inter.className} flex min-h-screen w-full`}>
+    <html lang="en" suppressHydrationWarning>
+      <body className={inter.className}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <AsideMenu />
-          <div className='flex flex-col w-full'>
-            <HeaderMobile />
-            {children}
-          </div>
+          {children}
         </ThemeProvider>
       </body>
     </html>
