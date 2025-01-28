@@ -95,7 +95,7 @@ export default function DisputesPage() {
                   <label className="text-sm font-medium">Tópico</label>
                   <Select>
                     <SelectTrigger>
-                      <SelectValue placeholder="Selecione o post" />
+                      <SelectValue placeholder="Selecione o tópico" />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="post1">Design System Implementation Guide</SelectItem>
@@ -104,7 +104,7 @@ export default function DisputesPage() {
                     </SelectContent>
                   </Select>
                 </div>
-                <div className="space-y-2">
+                {/*<div className="space-y-2">
                   <label className="text-sm font-medium">Motivo</label>
                   <Select>
                     <SelectTrigger>
@@ -117,7 +117,7 @@ export default function DisputesPage() {
                       <SelectItem value="other">Outro</SelectItem>
                     </SelectContent>
                   </Select>
-                </div>
+                </div>*/}
                 <div className="space-y-2">
                   <label className="text-sm font-medium">Justificativa</label>
                   <Textarea placeholder="Explique por que você acredita que este post deve ser restaurado..." />
