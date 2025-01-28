@@ -5,65 +5,65 @@ import { MobileNav } from "@/components/mobile-nav"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardFooter, CardHeader } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Gift, Check, Github, Youtube, TicketSlash } from "lucide-react"
+import { Gift, Check,  Brain , HeartHandshake, Dumbbell } from "lucide-react"
 
 const benefits = [
   {
-    title: "GitHub Student Pack",
-    description: "Acesse gratuitamente ferramentas essenciais para desenvolvedores, incluindo GitHub Pro, Microsoft Azure, entre outros.",
-    icon: "GitHub",
+    title: "Plataformas de Terapia Online",
+    description: "Acesse sessões gratuitas ou com desconto em plataformas de terapia online para apoio psicológico profissional.",
+    icon: "Brain",
     features: [
-      "GitHub Pro gratuito",
-      "Créditos Microsoft Azure",
-      "Domínio gratuito Namecheap"
+      "Atendimento com psicólogos licenciados",
+      "Sessões individuais ou em grupo",
+      "Disponível 24/7"
     ],
     link: "#",
     highlight: true
   },
   {
-    title: "YouTube Music University",
-    description: "Aproveite o YouTube Music Premium com sua conta de estudante e ouça suas músicas favoritas sem anúncios e offline.",
-    icon: "Music",
+    title: "Apps de Meditação e Mindfulness",
+    description: "Tenha acesso premium a aplicativos que ajudam a reduzir o estresse e melhorar a concentração.",
+    icon: "HeartHandshake",
     features: [
-      "Música sem anúncios",
-      "Download offline",
-      "Background play"
+      "Exercícios guiados de respiração e relaxamento",
+      "Acompanhamento do bem-estar emocional",
+      "Programas personalizados para ansiedade e sono"
     ],
     link: "#"
   },
   {
-    title: "Web Summit",
-    description: "Garanta seu ingresso gratuito para eventos de tecnologia e inovação, enquanto houver disponibilidade.",
-    icon: "Event",
+    title: "Benefícios para Atividade Física",
+    description: "Parcerias com academias e apps de treino para incentivar hábitos saudáveis e melhorar a saúde mental.",
+    icon: "Dumbbell",
     features: [
-      "Ingresso gratuito",
-      "Networking global",
-      "Palestras exclusivas"
+      "Acesso a academias e estúdios de yoga",
+      "Aulas de exercícios para aliviar o estresse",
+      "Treinos personalizados para bem-estar mental"
     ],
     link: "#"
   },
   {
-    title: "Rio Innovation Week",
-    description: "Garanta seu ingresso gratuito para evento de tecnologia e inovação, enquanto houver disponibilidade.",
-    icon: "Event",
+    title: "Programas de Apoio Psicológico Empresarial",
+    description: "Serviços internos ou parcerias para apoio psicológico contínuo no ambiente corporativo.",
+    icon: "Brain",
     features: [
-      "Ingresso gratuito",
-      "Networking local",
-      "Workshops práticos"
+      "Atendimento com psicólogos e coachings de bem-estar",
+      "Grupos de apoio e palestras sobre saúde mental",
+      "Políticas de equilíbrio entre vida pessoal e profissional"
     ],
     link: "#"
   }
-]
+];
 
 const getIcon = (name: string) => {
   const iconProps = { className: "h-10 w-10 text-primary" }
   switch (name) {
-    case "GitHub":
-      return <Github {...iconProps} />
-    case "Music":
-      return <Youtube {...iconProps} />
-    case "Event":
-      return <TicketSlash {...iconProps} />
+    case "Brain":
+      return <Brain {...iconProps} />
+    case "Dumbbell":
+      return <Dumbbell {...iconProps} />
+    case "HeartHandshake":
+      return <HeartHandshake {...iconProps} />
     default:
       return null
   }
@@ -75,7 +75,7 @@ export default function BenefitsPage() {
       {/* Sidebar para desktop */}
       <aside className="hidden md:flex w-64 border-r px-4 py-6 flex-col gap-6">
         <div className="flex items-center justify-between px-2">
-          <h1 className="text-xl font-bold">UX Forum</h1>
+          <h1 className="text-xl font-bold">Safe Space</h1>
           <NotificationsButton />
         </div>
         <MainNav />
@@ -89,7 +89,7 @@ export default function BenefitsPage() {
         <header className="md:hidden flex items-center justify-between px-4 py-4 border-b">
           <div className="flex items-center gap-2">
             <MobileNav />
-            <h1 className="text-xl font-bold">UX Forum</h1>
+            <h1 className="text-xl font-bold">Safe Space</h1>
           </div>
           <div className="flex items-center gap-2">
             <NotificationsButton />
