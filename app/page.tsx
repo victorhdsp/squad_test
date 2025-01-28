@@ -129,7 +129,7 @@ export default function Home() {
       {/* Sidebar para desktop */}
       <aside className="hidden md:flex w-64 border-r px-4 py-6 flex-col gap-6">
         <div className="flex items-center justify-between px-2">
-          <h1 className="text-xl font-bold">UX Forum</h1>
+          <h1 className="text-xl font-bold">Safe Space</h1>
           <NotificationsButton />
         </div>
         <MainNav />
@@ -143,7 +143,7 @@ export default function Home() {
         <header className="md:hidden flex items-center justify-between px-4 py-4 border-b">
           <div className="flex items-center gap-2">
             <MobileNav />
-            <h1 className="text-xl font-bold">UX Forum</h1>
+            <h1 className="text-xl font-bold">Safe Space</h1>
           </div>
           <div className="flex items-center gap-2">
             <NotificationsButton />
