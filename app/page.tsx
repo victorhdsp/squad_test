@@ -17,40 +17,109 @@ import { Filter } from "lucide-react"
 
 const topics = [
   {
-    title: "Best practices for mobile navigation patterns",
-    author: {
-      name: "Sarah Wilson",
-      avatar: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=64&h=64&fit=crop&crop=faces"
+    "title": "Pressão excessiva e prazos irreais: como lidar?",
+    "author": {
+      "name": "0rd3r1Y4",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=64&h=64&fit=crop&crop=faces"
     },
-    category: "Mobile Design",
-    replies: 24,
-    likes: 56,
-    excerpt: "I'm working on a complex mobile app and I'm curious about different navigation patterns. What are your thoughts on bottom tabs vs hamburger menus?",
-    timestamp: "2 hours ago"
+    "category": "Saúde Mental",
+    "replies": 5,
+    "likes": 32,
+    "excerpt": "Ultimamente, a carga de trabalho tem sido tão grande que me sinto exausto e desmotivado. Os prazos são cada vez mais curtos e a pressão para entregar resultados é constante. Como vocês lidam com essa situação?",
+    "timestamp": "2 horas atrás",
+    "comments": [
+      {
+        "id": 1,
+        "author": {
+          "name": "TheOffice",
+          "avatar": "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=64&h=64&fit=crop&crop=faces"
+        },
+        "content": "Sinto exatamente o mesmo! A pressão é constante e parece que nunca estamos fazendo o suficiente. Já tentei conversar com meu gestor, mas a resposta é sempre a mesma: 'Precisamos entregar!'. Acho que a empresa precisa repensar a forma como lida com os prazos e a carga de trabalho.",
+        "timestamp": "1 hora atrás"
+      },
+      {
+        "id": 2,
+        "author": {
+          "name": "SonoModeOn",
+          "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=64&h=64&fit=crop&crop=faces"
+        },
+        "content": "Concordo plenamente! Além da pressão, a falta de reconhecimento também pesa muito. Trabalhamos duro, mas não vemos nenhum tipo de retorno, seja um feedback positivo ou uma oportunidade de crescimento. Isso acaba nos desmotivando cada vez mais.",
+        "timestamp": "30 minutos atrás"
+      },
+      {
+        "id": 3,
+        "author": {
+          "name": "CaféViciado",
+          "avatar": "https://images.unsplash.com/photo-1508214799962-5a87916b1077?w=64&h=64&fit=crop&crop=faces"
+        },
+        "content": "Gente, essa situação é insustentável! Precisamos nos unir e fazer algo a respeito. Que tal criarmos um abaixo-assinado pedindo melhores condições de trabalho?",
+        "timestamp": "20 minutos atrás"
+      },
+    ]
   },
   {
-    title: "User testing methods for enterprise applications",
-    author: {
-      name: "Mike Chen",
-      avatar: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=faces"
+    "title": "Falta de reconhecimento e oportunidades de crescimento",
+    "author": {
+      "name": "RoarDope",
+      "avatar": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=64&h=64&fit=crop&crop=faces"
     },
-    category: "User Research",
-    replies: 18,
-    likes: 42,
-    excerpt: "Looking for recommendations on effective user testing methods specifically for enterprise applications. What approaches have worked well for you?",
-    timestamp: "5 hours ago"
+    "category": "Carreira",
+    "replies": 3,
+    "likes": 18,
+    "excerpt": "Sinto que meu trabalho não está sendo reconhecido como deveria. Me esforço ao máximo, mas não vejo oportunidades de crescimento na empresa. Alguém mais se sente assim?",
+    "timestamp": "5 horas atrás",
+    "comments": [
+      {
+        "id": 1,
+        "author": {
+          "name": "EmailNinja",
+          "avatar": "https://images.unsplash.com/photo-1502823403499-68823ca1099c?w=64&h=64&fit=crop&crop=faces"
+        },
+        "content": "Eu também me sinto assim! Parece que não importa o quanto nos dedicamos, nunca é suficiente. Já pensei em procurar outro emprego, mas tenho medo de não encontrar nada melhor.",
+        "timestamp": "4 horas atrás"
+      },
+      {
+        "id": 2,
+        "author": {
+          "name": "HappyHourHero",
+          "avatar": "https://images.unsplash.com/photo-1547425316575-58a93a0278f9?w=64&h=64&fit=crop&crop=faces"
+        },
+        "content": "Eu já estou procurando! Cansei de não ter oportunidades de crescimento e de não ser reconhecido pelo meu trabalho. Acho que a empresa não valoriza seus funcionários.",
+        "timestamp": "3 horas atrás"
+      },
+      {
+        "id": 3,
+        "author": {
+          "name": "FeriadoWaiting",
+          "avatar": "https://images.unsplash.com/photo-1568602471122-78329e105ba2?w=64&h=64&fit=crop&crop=faces"
+        },
+        "content": "Gente, vamos aproveitar esse espaço para fazermos um movimento e mostrarmos para a empresa que estamos insatisfeitos. Quem topa?",
+        "timestamp": "2 horas atrás"
+      }
+    ]
   },
   {
-    title: "Design systems: Monolithic vs Distributed",
-    author: {
-      name: "Emma Rodriguez",
-      avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=64&h=64&fit=crop&crop=faces"
+    "title": "Comunicação interna falha: como melhorar?",
+    "author": {
+      "name": "PrizedMoment",
+      "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=64&h=64&fit=crop&crop=faces"
     },
-    category: "Design Systems",
-    replies: 31,
-    likes: 89,
-    excerpt: "We're scaling our design system and debating between a monolithic approach versus a more distributed model. Would love to hear experiences from both sides.",
-    timestamp: "1 day ago"
+    "category": "Comunicação",
+    "replies": 1,
+    "likes": 25,
+    "excerpt": "A comunicação entre os setores da empresa é muito falha, o que causa ruídos e dificulta o andamento dos projetos. Como podemos melhorar a comunicação interna?",
+    "timestamp": "1 dia atrás",
+    "comments": [
+      {
+        "id": 1,
+        "author": {
+          "name": "SonoModeOn",
+          "avatar": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=64&h=64&fit=crop&crop=faces"
+        },
+        "content": "Concordo plenamente! A falta de comunicação é um dos maiores problemas da empresa. Já perdi a conta de quantas vezes um projeto ficou parado por falta de informação.",
+        "timestamp": "20 horas atrás"
+      }
+    ]
   }
 ]
 

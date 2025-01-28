@@ -41,26 +41,7 @@ export function TopicCard({
   likes,
   excerpt,
   timestamp,
-  comments = [
-    {
-      id: 1,
-      author: {
-        name: "Alex Thompson",
-        avatar: "https://images.unsplash.com/photo-1599566150163-29194dcaad36?w=64&h=64&fit=crop&crop=faces"
-      },
-      content: "This is a really interesting perspective. I've been working on something similar and found that...",
-      timestamp: "2 hours ago"
-    },
-    {
-      id: 2,
-      author: {
-        name: "Maria Garcia",
-        avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=64&h=64&fit=crop&crop=faces"
-      },
-      content: "Great points! Have you considered looking into the research by Nielsen Norman Group on this topic?",
-      timestamp: "1 hour ago"
-    }
-  ]
+  comments
 }: TopicCardProps) {
   const [isOpen, setIsOpen] = useState(false)
   const [newComment, setNewComment] = useState("")
@@ -135,12 +116,12 @@ export function TopicCard({
 
             {/* Comments section */}
             <div className="flex-1 overflow-y-auto py-4 space-y-4">
-              {comments.map((comment) => (
+              {comments && comments.map((comment) => (
                 <div key={comment.id} className="flex gap-4">
-                  <Avatar className="h-8 w-8">
+                  {/*<Avatar className="h-8 w-8">
                     <AvatarImage src={comment.author.avatar} />
                     <AvatarFallback>{comment.author.name[0]}</AvatarFallback>
-                  </Avatar>
+                  </Avatar>*/}
                   <div className="flex-1">
                     <div className="flex items-center gap-2">
                       <span className="font-medium">{comment.author.name}</span>
