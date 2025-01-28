@@ -14,21 +14,21 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 const notifications = [
   {
     id: 1,
-    title: "New reply to your topic",
-    message: "Sarah Wilson replied to 'Best practices for mobile navigation patterns'",
-    time: "2 minutes ago"
+    title: "Novo tópico",
+    message: "Pressão excessiva e prazos irreais: como lidar?",
+    time: "2 horas atrás"
   },
   {
     id: 2,
-    title: "Your topic is trending",
-    message: "Your discussion about Design Systems has received 50+ replies",
-    time: "1 hour ago"
+    title: "Novo tópico",
+    message: "Falta de reconhecimento e oportunidades de crescimento",
+    time: "5 horas atrás"
   },
   {
     id: 3,
-    title: "New announcement",
-    message: "Important update about community guidelines",
-    time: "2 hours ago"
+    title: "Novo anuncio",
+    message: "Cuidando da sua Saúde Mental no Trabalho",
+    time: "Agora"
   }
 ]
 
