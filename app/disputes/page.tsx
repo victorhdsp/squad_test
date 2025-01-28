@@ -19,7 +19,7 @@ import { MobileNav } from "@/components/mobile-nav"
 const disputes = [
   {
     id: 1,
-    title: "Design System Implementation Guide",
+    title: "Falta de reconhecimento  e oportunidades de crescimento",
     reason: "Conteúdo Duplicado",
     status: "Em Análise",
     date: "2024-03-20",
@@ -27,7 +27,7 @@ const disputes = [
   },
   {
     id: 2,
-    title: "UX Research Methods",
+    title: "Meu salario aumentou apenas 12,00 esse ano..",
     reason: "Violação de Diretrizes",
     status: "Rejeitado",
     date: "2024-03-19",
@@ -35,7 +35,7 @@ const disputes = [
   },
   {
     id: 3,
-    title: "Mobile First Design Principles",
+    title: "Banco de Horas",
     reason: "Spam",
     status: "Aprovado",
     date: "2024-03-18",
@@ -54,7 +54,7 @@ export default function DisputesPage() {
     <div className="flex min-h-screen">
       <aside className="hidden md:flex w-64 border-r px-4 py-6 flex-col gap-6">
         <div className="flex items-center justify-between px-2">
-          <h1 className="text-xl font-bold">UX Forum</h1>
+          <h1 className="text-xl font-bold">Safe Space</h1>
           <NotificationsButton />
         </div>
         <MainNav />
@@ -67,7 +67,7 @@ export default function DisputesPage() {
         <header className="md:hidden flex items-center justify-between px-4 py-4 border-b">
           <div className="flex items-center gap-2">
             <MobileNav />
-            <h1 className="text-xl font-bold">UX Forum</h1>
+            <h1 className="text-xl font-bold">Safe Space</h1>
           </div>
           <div className="flex items-center gap-2">
             <NotificationsButton />
@@ -98,9 +98,9 @@ export default function DisputesPage() {
                       <SelectValue placeholder="Selecione o tópico" />
                     </SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="post1">Design System Implementation Guide</SelectItem>
-                      <SelectItem value="post2">UX Research Methods</SelectItem>
-                      <SelectItem value="post3">Mobile First Design Principles</SelectItem>
+                      <SelectItem value="post1">Falta de reconhecimento e oportunidades de crescimento</SelectItem>
+                      <SelectItem value="post2">Meu salario aumentou apenas 12,00 esse ano..</SelectItem>
+                      <SelectItem value="post3">Banco de Horas</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>
