@@ -11,51 +11,70 @@ import { MessageCircle } from "lucide-react"
 
 const announcements = [
   {
-    id: 1,
-    title: "New Community Guidelines",
-    content: "We've updated our community guidelines to ensure a better experience for all members. Please take a moment to review the changes.",
-    author: {
-      name: "Admin Team",
-      avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=64&h=64&fit=crop&crop=faces"
+    "id": 3,
+    "title": "Cuidando da sua Saúde Mental no Trabalho",
+    "content": `A saúde mental é fundamental para o nosso bem-estar e desempenho no trabalho. Por isso, o RH preparou algumas dicas para lidar com o estresse e manter o equilíbrio emocional:
+    
+    * Reconheça os sinais: Identifique os sintomas de estresse, como irritabilidade, insônia e dificuldade de concentração.
+    * Gerencie o tempo: Organize suas tarefas, priorize atividades e evite sobrecarga de trabalho.
+    * Faça pausas: Tire alguns minutos para relaxar e se desconectar do trabalho durante o expediente.
+    * Busque apoio: Converse com seus colegas, superiores ou procure ajuda profissional se necessário.
+    * Mantenha hábitos saudáveis: Alimente-se bem, pratique exercícios físicos e durma adequadamente.
+  
+  Lembre-se: a sua saúde mental é importante! Cuide-se e busque ajuda quando precisar.`,
+    "author": {
+      "name": "Jane Doe",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=64&h=64&fit=crop&crop=faces"
     },
-    date: "2024-03-20",
-    comments: [
+    "date": "2024-04-26",
+    "comments": [
       {
-        id: 1,
-        author: {
-          name: "Sarah Wilson"
+        "id": 1,
+        "author": {
+          "name": "0rd3r1Y4",
+          "avatar": "https://images.unsplash.com/photo-1508214799942-5114878c42d2?w=64&h=64&fit=crop&crop=faces"
         },
-        content: "Great updates! The new guidelines are much clearer.",
-        date: "2024-03-20"
+        "content": "Ótimas dicas! A saúde mental é essencial para um ambiente de trabalho positivo.",
+        "date": "2024-04-26"
       },
       {
-        id: 2,
-        author: {
-          name: "Mike Chen"
+        "id": 2,
+        "author": {
+          "name": "SonoModeOn",
+          "avatar": "https://images.unsplash.com/photo-1499781350552-c91299a32399?w=64&h=64&fit=crop&crop=faces"
         },
-        content: "Looking forward to seeing how these changes improve our community discussions.",
-        date: "2024-03-20"
+        "content": "Concordo! E é importante que a empresa ofereça suporte para cuidarmos da nossa saúde mental.",
+        "date": "2024-04-26"
       }
     ]
   },
   {
-    id: 2,
-    title: "Platform Maintenance Schedule",
-    content: "We will be performing scheduled maintenance this weekend to improve platform performance. Expected downtime: 2 hours.",
-    author: {
-      name: "Tech Team",
-      avatar: "https://images.unsplash.com/photo-1519345182560-3f2917c472ef?w=64&h=64&fit=crop&crop=faces"
+    "id": 4,
+    "title": "Novo Feriado Municipal!",
+    "content": "Atenção, pessoal! Temos uma ótima notícia: foi decretado um novo feriado municipal em comemoração ao aniversário da cidade. O feriado será no dia 15 de maio, uma ótima oportunidade para descansarmos e aproveitarmos a cidade!\n\nJá estamos preparando um calendário com os próximos feriados para que todos possam se planejar. Fiquem ligados nos próximos avisos!",
+    "author": {
+      "name": "Jane Doe",
+      "avatar": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=64&h=64&fit=crop&crop=faces"
     },
-    date: "2024-03-19",
-    comments: [
+    "date": "2024-04-26",
+    "comments": [
       {
-        id: 3,
-        author: {
-          name: "Emma Rodriguez",
-          avatar: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=64&h=64&fit=crop&crop=faces"
+        "id": 1,
+        "author": {
+          "name": "RoarDope",
+          "avatar": "https://images.unsplash.com/photo-1547425317-a4bca2969a69?w=64&h=64&fit=crop&crop=faces"
         },
-        content: "Will this affect any ongoing discussions?",
-        date: "2024-03-19"
+        "content": "Que legal! Adoro feriados, já estou pensando em como aproveitar!",
+        "date": "2024-04-26"
+      },
+      {
+        "id": 2,
+        "author": {
+        "name": "Jane Doe",
+        "avatar": "https://images.unsplash.com/photo-1531427186611-87139c72c09d?w=64&h=64&fit=crop&crop=faces"
+        },
+        "content": "Boa! Mais um dia para descansar. Ansioso para o feriado!",
+        "date": "2024-04-26"
       }
     ]
   }
@@ -115,7 +134,7 @@ export default function AnnouncementsPage() {
                     </div>
                   </CardHeader>
                   <CardContent>
-                    <p className="text-muted-foreground">{announcement.content}</p>
+                    <p className="whitespace-break-spaces text-muted-foreground">{announcement.content}</p>
                     
                     {/* Comments section */}
                     <div className="mt-6 space-y-4">
@@ -125,10 +144,10 @@ export default function AnnouncementsPage() {
                       </h4>
                       {announcement.comments.map((comment) => (
                         <div key={comment.id} className="flex gap-4 pl-4 border-l">
-                          <Avatar className="h-8 w-8">
+                          {/*<Avatar className="h-8 w-8">
                             <AvatarImage src={comment.author.avatar} />
                             <AvatarFallback>{comment.author.name[0]}</AvatarFallback>
-                          </Avatar>
+                          </Avatar>*/}
                           <div className="flex-1">
                             <div className="flex items-center gap-2">
                               <span className="font-medium">{comment.author.name}</span>
